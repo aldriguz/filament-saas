@@ -19,6 +19,17 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/home';
 
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function configureRateLimiting()
+    {
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+    }
 
     protected function mapWebRoutes()
     {
