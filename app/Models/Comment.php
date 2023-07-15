@@ -21,7 +21,8 @@ class Comment extends Model
     protected $fillable = [
         'title',
         'content',
-        'is_visible'
+        'is_visible',
+        'tenant_id'
     ];
 
     /**

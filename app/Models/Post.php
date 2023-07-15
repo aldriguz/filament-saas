@@ -23,6 +23,7 @@ class Post extends Model
         'slug',
         'content',
         'published_at',
+        'tenant_id'
     ];
 
     public function comments()
