@@ -22,7 +22,7 @@ class Comment extends Model
         'title',
         'content',
         'is_visible',
-        'tenant_id'
+        'post_id'
     ];
 
     /**

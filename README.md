@@ -15,3 +15,29 @@ Single database multi tenancy laravel app usinng filament admin.
 * Filament Admin panel
 * Tenancy for Laravel (stancl/tenancy)
 * Laravel live wire
+
+## Important
+
+Need to apply this to get working central app
+https://github.com/filamentphp/filament/discussions/2058
+
+```php
+    'middleware' => [
+        'auth' => [
+            Authenticate::class,
+        ],
+        'base' => [
+            EncryptCookies::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+            AuthenticateSession::class,
+            ShareErrorsFromSession::class,
+            VerifyCsrfToken::class,
+            SubstituteBindings::class,
+            DispatchServingFilamentEvent::class,
+            MirrorConfigToSubpackages::class,
+            InitializeTenancyByDomain::class,
+            'universal',
+        ],
+    ],
+```

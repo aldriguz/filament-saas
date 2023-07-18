@@ -25,7 +25,17 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('title')
+                    ->maxLength(255)
+                    ->required(),
+                Forms\Components\TextInput::make('slug')
+                    ->maxLength(255)
+                    ->required(),
+                Forms\Components\MarkdownEditor::make('content')
+                    ->required()
+                    ->columnSpan('full'),
+                Forms\Components\DatePicker::make('published_at')
+                    ->label('Published Date'),
             ]);
     }
 
@@ -33,7 +43,16 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('slug')
+                    ->searchable()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('published_at')
+                    ->label('Published Date')
+                    ->date(),
             ])
             ->filters([
                 //
@@ -49,7 +68,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\CommentsRelationManager::class,
         ];
     }
     
