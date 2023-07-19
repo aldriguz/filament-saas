@@ -14,7 +14,7 @@ Single database multi tenancy laravel app usinng filament admin.
 ## Dependencies
 * Filament Admin panel
 * Tenancy for Laravel (stancl/tenancy)
-* Laravel live wire
+* Laravel livewire
 
 ## Important
 
