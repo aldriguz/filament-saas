@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //$table->foreignId('post_id')->constrained('posts');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('tenant_id')->nullable()->change();
         });
     }
 
@@ -21,8 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //$table->dropForeignIdFor(['post_id']);
-        });
+        //Not necessary
     }
 };

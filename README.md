@@ -7,9 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About Filament SaaS
 
-Single database multi tenancy laravel app usinng filament admin.
+Single database multi tenancy laravel app using filament admin.
 
 ## Dependencies
 * Filament Admin panel
@@ -40,4 +40,11 @@ https://github.com/filamentphp/filament/discussions/2058
             'universal',
         ],
     ],
+```
+
+## Common commands
+
+- Create filament user
+```
+php artisan make:filament-user
 ```
